@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style" onclick="bookNowClicked()">Book Now</button>
+            <button class="btn-style" onclick="bookNowButton()">Book Now</button>
         </div>
 
         <div class="booking-form" id="review-form">
@@ -122,7 +122,7 @@
             <h5>Quantity: <span id="economyClassTicketNumber">0</span> ticket</h5>
             <h5>Total Price: <span id="economyClassTicketPrice">00</span> USD</h5>
             <h3>Invoice total <span id="invoiceTotal">165</span> USD(+VAT)</h3>
-            <button class="btn-style">Confirm order</button>
+            <button class="btn-style" onclick="alert('Order placed successfully !')">Confirm order</button>
         </div>
 
     </main>
@@ -171,9 +171,12 @@
             document.getElementById(selector).innerText = value;
         }
 
-        function bookNowClicked() {
+        function bookNowButton() {
             document.getElementById('order-form').style.display = 'none';
             document.getElementById('review-form').style.display = 'block';
+
+            // Review form works properly even after reload or direct ticket amount input by calling updateTotal() function. (Optional)
+            updateTotal();
         }
     </script>
 </body>
