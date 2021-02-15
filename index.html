@@ -64,8 +64,8 @@
                         name="firstClassTicketCount" value="1">
                 </div>
                 <div class="plus-minus-btn-area">
-                    <button onclick="handleTicketChange('firstClass', false)">-</button>
-                    <button onclick="handleTicketChange('firstClass', true)">+</button>
+                    <button onclick="handleTicketChange('firstClass', false)" class="minus-btn">-</button>
+                    <button onclick="handleTicketChange('firstClass', true)" class="plus-btn">+</button>
                 </div>
             </div>
 
@@ -76,8 +76,8 @@
                         name="economyClassTicketCount" value="0">
                 </div>
                 <div class="plus-minus-btn-area">
-                    <button onclick="handleTicketChange('economyClass', false)">-</button>
-                    <button onclick="handleTicketChange('economyClass', true)">+</button>
+                    <button onclick="handleTicketChange('economyClass', false)" class="minus-btn">-</button>
+                    <button onclick="handleTicketChange('economyClass', true)" class="plus-btn">+</button>
                 </div>
             </div>
             <div class="calculations">
@@ -114,7 +114,7 @@
 
     <script>
         function handleTicketChange(ticket, isIncrease) {
-            let ticketCount = document.getElementById(ticket + 'TicketCount').value;
+            let ticketCount = getValue(ticket);
             if (isIncrease) {
                 ticketCount++;
             } else if (!isIncrease && ticketCount > 0) {
@@ -125,13 +125,25 @@
         }
 
         function updateTotal() {
-            let firstClassTicket = document.getElementById('firstClassTicketCount').value;
-            let economyClassTicket = document.getElementById('economyClassTicketCount').value;
+            let firstClassTicket = getValue('firstClass');
+            let economyClassTicket = getValue('economyClass');
+
             let subtotalPrice = (firstClassTicket * 150) + (economyClassTicket * 100);
             let vatTotal = subtotalPrice * 0.10;
-            document.getElementById('subtotalPrice').innerText = subtotalPrice;
-            document.getElementById('vatTotal').innerText = vatTotal;
-            document.getElementById('totalPrice').innerText = subtotalPrice + vatTotal;
+            let totalPrice = subtotalPrice + vatTotal;
+
+            setInnerText('subtotalPrice', subtotalPrice);
+            setInnerText('vatTotal', vatTotal);
+            setInnerText('totalPrice', totalPrice);
+        }
+
+        function getValue(selector) {
+            let value = document.getElementById(selector + 'TicketCount').value;
+            return value;
+        }
+
+        function setInnerText(selector, value) {
+            document.getElementById(selector).innerText = value;
         }
     </script>
 </body>

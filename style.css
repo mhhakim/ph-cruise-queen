@@ -122,6 +122,7 @@ a.active {
 
 .plus-minus-btn-area button,
 .plus-minus-btn-area button:hover {
+
     font-size: 30px;
     padding: 2px;
     margin: 10px 5px 0px 0px;
@@ -134,8 +135,12 @@ a.active {
     color: #3352f2;
 }
 
-.plus-minus-btn-area button:hover {
-    color: #001994;
+.plus-btn:hover {
+    color: green;
+}
+
+.minus-btn:hover {
+    color: red;
 }
 
 .booking-form .inputs {
