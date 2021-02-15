@@ -164,3 +164,29 @@ a.active {
     display: flex;
     justify-content: space-between;
 }
+
+#review-form h5 {
+    padding: 6px 0;
+}
+
+#review-form h4,
+h2 {
+    margin: 10px 0px;
+}
+
+#review-form h3 {
+    text-align: center;
+    margin: 15px 0;
+}
+
+#review-form .separator {
+    border-bottom: 1px solid gray;
+    margin: 10px 0;
+}
+
+#review-form span {
+    color: #004a40;
+}
+#review-form {
+    display: none;
+}
